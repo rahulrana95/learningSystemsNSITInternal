@@ -1,16 +1,35 @@
 import React from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import axios from 'axios';
 import '../index.css';
-
+import store from '../Stores/index.js';
 const FormItem = Form.Item;
+
+// type 1 teacher
+// type 2 student
+
 
 class NormalLoginForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
-      }
+        axios.post('http://192.168.5.1:5000/login', {
+        username:values.userName,
+        password:values.password
+      })
+      .then(function (response) {
+        console.log(response);
+        store.dispatch({
+          payload:response.data[1].data[0],
+          login:1,
+          type:'loginData',
+          typeOfUser:response.data[0].type
+        })
+      });
+
+
+    }
     });
   }
   render() {
@@ -41,11 +60,9 @@ class NormalLoginForm extends React.Component {
           )}
           <a className="login-form-forgot" href="">Forgot password</a><br/>
           <center><Button type="primary" htmlType="submit" className="login-form-button">
-            Log in as Teacher
+            Log in
           </Button></center><br/>
-          <center><Button type="primary" htmlType="submit" className="login-form-button">
-            Log in as Student
-          </Button></center>
+
 
         </FormItem>
       </Form>

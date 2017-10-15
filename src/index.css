@@ -39,6 +39,22 @@ body {
   margin-right: auto !important;
   background-color: white !important;
 }
+#StudentSection {
+  width:95% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  background-color: white !important;
+}
+
+.StudentCourses Col {
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+}
+
+
+Card {
+  margin:5px !important;
+}
 
 #loginFormDiv{
 

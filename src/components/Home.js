@@ -4,6 +4,8 @@ import {Link} from 'react-router';
 import LoginForm from './LoginForm.js';
 import LoginInfo from './LoginInfo.js';
 import TeacherSection from './teacherSection.js';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import StudentSection from './studentSection.js';
 import logo from '../images/logoPro.png';
 
@@ -25,7 +27,7 @@ class Home extends Component {
     return (
       <div>
       <center><img src={logo} style={{ width:'100px', height:'86px' }} /></center>
-      <TeacherSection/>
+      <TeacherSection hereChildren={this.props.children} />
       </div>
     );
   }
@@ -34,19 +36,34 @@ class Home extends Component {
     return (
       <div>
       <center><img src={logo} style={{ width:'100px', height:'86px' }} /></center>
-      <StudentSection />
+      <StudentSection hereChildren={this.props.children}/>
       </div>
     );
 
   }
 
   render() {
+    console.log(this.props.LoginReducer.typeOfUser);
     return (
       <div className="Home">
-        {this.studentSection()}
+        {this.props.LoginReducer.login ? (this.props.LoginReducer.typeOfUser==1 ? this.teacherSection() : this.studentSection() ): this.infoAtLoginPage()}
       </div>
     );
   }
 }
 
-export default Home;
+function mapStateToProps(state){
+	return {
+    LoginReducer:state.LoginReducer
+	};
+
+
+	}
+
+function matchDispatchToProps(dispatch){
+	return bindActionCreators({},dispatch);
+
+
+}
+
+export default connect(mapStateToProps,matchDispatchToProps)(Home);

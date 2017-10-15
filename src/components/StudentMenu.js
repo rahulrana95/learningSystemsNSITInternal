@@ -1,5 +1,6 @@
 import React from  'react';
 import { Menu, Icon } from 'antd';
+import {Link} from 'react-router';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
@@ -8,7 +9,6 @@ export default class StudentMenu extends React.Component {
     current: 'mail',
   }
   handleClick = (e) => {
-    console.log('click ', e);
     this.setState({
       current: e.key,
     });
@@ -21,22 +21,22 @@ export default class StudentMenu extends React.Component {
         mode="horizontal"
       >
         <Menu.Item key="courses">
-          <Icon type="book" />Courses
+          <Link to="scourses" > <Icon type="book" />Courses </Link>
         </Menu.Item>
         <Menu.Item key="discussions">
-          <Icon type="usergroup-add" />Discussions
+          <Link to="/sdiscussions" ><Icon type="usergroup-add" />Discussions</Link>
         </Menu.Item>
         <Menu.Item key="polls">
-          <Icon type="bar-chart" />Polls
+          <Link to="/student/polls" ><Icon type="bar-chart" />Polls</Link>
         </Menu.Item>
         <Menu.Item key="resources">
-          <Icon type="paper-clip" />Resources
+          <Link to="/student/resources" ><Icon type="paper-clip" />Resources</Link>
         </Menu.Item>
         <Menu.Item key="announcements">
-          <Icon type="notification" />Announcements
+          <Link to="/sannouncements" ><Icon type="notification" />Announcements</Link>
         </Menu.Item>
         <Menu.Item key="deadline">
-          <Icon type="clock-circle-o" />Deadlines
+          <Link to="/student/deadlines" ><Icon type="clock-circle-o" />Deadlines</Link>
         </Menu.Item>
 
 

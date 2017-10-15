@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { Card, Col, Row, Layout, Icon } from 'antd';
 import TeacherMenu from './TeacherMenu.js';
+import logo from '../images/logoPro.png';
+
 const { Header, Footer, Sider, Content } = Layout;
 class TeacherSection extends Component {
   render() {
     return (
+      <div>
       <div id="TeacherSection">
+
   <Layout>
       <Sider style={{ backgroundColor:'white', color:'black' }}>
         <div className="ProfilePic">
@@ -31,11 +35,12 @@ class TeacherSection extends Component {
       <Layout>
         <Header style={{ marginLeft:'10px' ,backgroundColor:'white' }} > <TeacherMenu />  </Header>
         <Content style={{ marginLeft:'10px', padding:'10px', marginBottom:'20px',marginTop:'20px' }}>
-          
+
         </Content>
 
       </Layout>
     </Layout>
+      </div>
       </div>
     );
   }

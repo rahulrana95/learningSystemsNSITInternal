@@ -1,5 +1,6 @@
 import React from  'react';
 import { Menu, Icon } from 'antd';
+import {Link} from 'react-router';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
@@ -21,19 +22,19 @@ export default class TeacherMenu extends React.Component {
         mode="horizontal"
       >
         <Menu.Item key="courses">
-          <Icon type="book" />Courses
+          <Link to="tcourses"><Icon type="book" />Courses</Link>
         </Menu.Item>
         <Menu.Item key="discussions">
-          <Icon type="usergroup-add" />Discussions
+          <Link to="discussions"><Icon type="usergroup-add" />Discussions</Link>
         </Menu.Item>
         <Menu.Item key="polls">
-          <Icon type="bar-chart" />Polls
+          <Link to="tpolls"><Icon type="bar-chart" />Polls</Link>
         </Menu.Item>
         <Menu.Item key="resources">
-          <Icon type="paper-clip" />Resources
+        <Link to="tdiscussions">  <Icon type="paper-clip" />Resources</Link>
         </Menu.Item>
         <Menu.Item key="announcements">
-          <Icon type="notification" />Announcements
+        <Link to="tannouncements">  <Icon type="notification" />Announcements</Link>
         </Menu.Item>
 
 
